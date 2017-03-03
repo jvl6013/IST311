@@ -99,6 +99,11 @@ public class LoginUI extends javax.swing.JFrame {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         String username = this.userNameTextField.getText();
         char[] password = this.passwordTextField.getPassword();
+       
+        /* I am not  familiar with bufferreader and am only familiar with requestAuthenticat(userna...
+        We have to change this and request NavigationCntl then your LoginCntl.java and my LoginUI.java 
+        work perfectly together in netbeans. */
+        
         boolean authenticated = LoginUI.this.parentLoginCntl.requestAuthenticate(username, password);
         if(authenticated){
             System.out.println("Authenticated");
@@ -142,6 +147,7 @@ public class LoginUI extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                // In netbeans this was an error unlesss you add throw new UnsupportedOperationException into a constructor
                 new LoginUI().setVisible(true);
             }
         });
