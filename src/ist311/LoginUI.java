@@ -11,9 +11,8 @@ public class LoginUI extends javax.swing.JFrame {
         initComponents();
     }
 
+   @SuppressWarnings("unchecked")
    
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         userNameLabel = new javax.swing.JLabel();
