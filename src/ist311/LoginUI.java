@@ -3,11 +3,11 @@ package ist311;
 
 public class LoginUI extends javax.swing.JFrame {
 
-    private LoginCntl parentLoginCntl = null;
+    private LoginCtrl parentLoginCtrl = null;
     
-    public LoginUI(LoginCntl newParentLoginCntl)
+    public LoginUI(LoginCtrl newParentLoginCtrl)
     {
-        parentLoginCntl = newParentLoginCntl;
+        parentLoginCtrl = newParentLoginCtrl;
         initComponents();
     }
 
@@ -104,10 +104,10 @@ public class LoginUI extends javax.swing.JFrame {
         We have to change this and request NavigationCntl then your LoginCntl.java and my LoginUI.java 
         work perfectly together in netbeans. */
         
-        boolean authenticated = LoginUI.this.parentLoginCntl.requestAuthenticate(username, password);
+        boolean authenticated = LoginUI.this.parentLoginCtrl.requestAuthenticate(username, password);
         if(authenticated){
             System.out.println("Authenticated");
-            LoginUI.this.parentLoginCntl.requestNavigationCntl();
+            LoginUI.this.parentLoginCtrl.requestNavigationCntl();
         }else{
             System.out.println("NOT Authenticated");
         }
