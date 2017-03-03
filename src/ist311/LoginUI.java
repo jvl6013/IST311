@@ -1,4 +1,4 @@
-package 311;
+package ist311;
 
 
 public class LoginUI extends javax.swing.JFrame {
