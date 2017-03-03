@@ -21,6 +21,7 @@ public class IST311 {
      */
     public static void main(String[] args) {
         LoginCtrl lc1 = new LoginCtrl();
+        //Instantiating LoginUI - Jerry
         LoginUI theLoginUI = new LoginUI();
         lc1.addUser("asdfasdf");
         System.out.println(lc1.authenticate("jvl6012"));
