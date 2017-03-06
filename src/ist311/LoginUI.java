@@ -11,7 +11,11 @@ public class LoginUI extends javax.swing.JFrame {
         initComponents();
     }
 
-   @SuppressWarnings("unchecked")
+    public LoginUI() {
+        initComponents();
+    }
+
+   
    
     private void initComponents() {
 
@@ -32,7 +36,7 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
-        passwordLabel.setText("Password");
+        //passwordLabel.setText("Password");
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,16 +102,12 @@ public class LoginUI extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         String username = this.userNameTextField.getText();
-        char[] password = this.passwordTextField.getPassword();
+       // char[] password = this.passwordTextField.getPassword();
        
-        /* I am not  familiar with bufferreader and am only familiar with requestAuthenticat(userna...
-        We have to change this and request NavigationCntl then your LoginCntl.java and my LoginUI.java 
-        work perfectly together in netbeans. */
         
-        boolean authenticated = LoginUI.this.parentLoginCtrl.requestAuthenticate(username, password);
+        boolean authenticated = LoginUI.this.parentLoginCtrl.authenticate(username);
         if(authenticated){
             System.out.println("Authenticated");
-            LoginUI.this.parentLoginCtrl.requestNavigationCntl();
         }else{
             System.out.println("NOT Authenticated");
         }
@@ -148,7 +148,7 @@ public class LoginUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 // In netbeans this was an error unlesss you add throw new UnsupportedOperationException into a constructor
-                new LoginUI().setVisible(true);
+               new LoginUI().setVisible(true);
             }
         });
     }
