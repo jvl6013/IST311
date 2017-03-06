@@ -62,4 +62,35 @@ public class LoginCtrl {
             System.out.println("Error: Unable to write");
         }
     }
-}
+
+  public  boolean requestAuthenticate(String username, char[] password) {
+         List<String> list = new ArrayList<String>();
+        
+        try{
+            FileReader fileReader = new FileReader(userList);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String str;
+            while ((str = bufferedReader.readLine()) != null) {
+                list.add(str);
+            }
+        }
+        catch(IOException ex){
+            System.out.println("Error: Unable to read");
+        }
+        
+        for(int i = 0; i < list.size(); i++){
+            if(fileName.equals(list.get(i))){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    
+    }
+
+ 
+
+   
+
