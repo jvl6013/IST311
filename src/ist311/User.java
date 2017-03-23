@@ -1,4 +1,4 @@
-package ist311;
+package taskcontactmanager;
 import java.io.Serializable;
 public class User implements Serializable{
     
