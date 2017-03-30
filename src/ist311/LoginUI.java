@@ -92,7 +92,7 @@ public class LoginUI extends javax.swing.JFrame {
         boolean authenticated = parentLoginCtrl.authenticate(username);
         if(authenticated){
             System.out.println("Authenticated");
-            NavigationUI nav = new NavigationUI();
+            NavigationUI navUI = new NavigationUI();
             this.setVisible(false);
         }else{
             System.out.println("NOT Authenticated");

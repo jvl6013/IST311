@@ -28,7 +28,6 @@ public class CalUI2 extends JFrame{
 
     public CalUI2(){
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
@@ -36,6 +35,7 @@ public class CalUI2 extends JFrame{
         panel = initCal();
         
         frame.setSize(800, 600);
+        frame.setTitle("Calendar");
         frame.add(panel);
     }
     
@@ -65,7 +65,7 @@ public class CalUI2 extends JFrame{
 
                 calcontrol.prevMonth();
                 table = calcontrol.getCalendar();
-                yearLabel.setText("YEAR: " + calcontrol.getYear());
+                yearLabel.setText("" + calcontrol.getYear());
                 monthLabel.setText(calcontrol.toStringtMonth(calcontrol.getMonth()));
 
                 pane = new JScrollPane(table);
@@ -86,7 +86,7 @@ public class CalUI2 extends JFrame{
 
                 calcontrol.nextMonth();
                 table = calcontrol.getCalendar();
-                yearLabel.setText("YEAR: " + calcontrol.getYear());
+                yearLabel.setText("" + calcontrol.getYear());
                 monthLabel.setText(calcontrol.toStringtMonth(calcontrol.getMonth()));
 
                 pane = new JScrollPane(table);

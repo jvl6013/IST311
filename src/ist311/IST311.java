@@ -20,21 +20,13 @@ public class IST311 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*
+
         LoginCtrl lct = new LoginCtrl();
         lct.addUser("Owen");
         lct.addUser("Jerry");
 
         LoginUI theLoginUI = new LoginUI(lct);
         theLoginUI.setVisible(true);
-        */
-        
-        CalUI cal1 = new CalUI();
-        cal1.setVisible(true);
-        
-        CalUI2 cal2 = new CalUI2();
-    }
-
-    //tedst comment
-    
+           
+    }   
 }
