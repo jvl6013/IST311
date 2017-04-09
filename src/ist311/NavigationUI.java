@@ -26,11 +26,17 @@ public class NavigationUI extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e)
             {
                 CalUI2 cal = new CalUI2();
-                cal.setVisible(true);
             }
         });
         JButton uc2Button = new JButton("Contact List (NOT IMPLEMENTED)");
         JButton uc3Button = new JButton("Task List (NOT IMPLEMENTED)");
+        uc3Button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                TaskListUI tl = new TaskListUI();
+            }
+        });
         JButton uc4Button = new JButton("Search Contact (NOT IMPLEMENTED");
 
         navPanel.add(uc1Button);
