@@ -29,7 +29,7 @@ public class NavigationUI extends javax.swing.JFrame{
             }
         });
         JButton uc2Button = new JButton("Contact List (NOT IMPLEMENTED)");
-        JButton uc3Button = new JButton("Task List (NOT IMPLEMENTED)");
+        JButton uc3Button = new JButton("Task List");
         uc3Button.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
