@@ -1,21 +1,48 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ist311;
 
+import java.util.Date;
 
-public class Contact 
-{
-    String fname;
-    Contact(String fname)
-    {
-        this.fname = fname;
+/**
+ * Created by fivewen on 4/21/17.
+ */
+public class Contact {
+    String firstName, lastName, stAddress, city, zipCode, phoneNumber, email;
+
+    public Contact(String firstName, String lastName, String stAddress, String city, String zipCode, String phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.stAddress = stAddress;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
-    
-    public String getName()
-    {
-        return this.fname;
+
+    public String getFirstName() {
+        return firstName;
     }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setName(String fName, String lName) {
+        firstName = fName;
+        lastName = lName;
+    }
+
+    public void setAddress(String stAddress, String city, String zipCode) {
+        this.stAddress = stAddress;
+        this.city = city;
+        this.zipCode = zipCode;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }

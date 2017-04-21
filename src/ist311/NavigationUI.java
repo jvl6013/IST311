@@ -14,21 +14,28 @@ public class NavigationUI extends javax.swing.JFrame{
 
         //Create and set up the window.
         JFrame frame = new JFrame("Navigation UI");
-        frame.setPreferredSize(new Dimension(300, 500));
+        frame.setPreferredSize(new Dimension(300, 400));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 
         JPanel navPanel = new JPanel();
-        navPanel.setLayout(new GridLayout(4, 1));
+        navPanel.setLayout(new GridLayout(3, 1));
 
         JButton uc1Button = new JButton("Calendar");
         uc1Button.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                CalUI2 cal = new CalUI2();
+                CalUI cal = new CalUI();
             }
         });
-        JButton uc2Button = new JButton("Contact List (NOT IMPLEMENTED)");
+        JButton uc2Button = new JButton("Contact List");
+        uc2Button.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                ContactListUI cl = new ContactListUI();
+            }
+        });
         JButton uc3Button = new JButton("Task List");
         uc3Button.addActionListener(new ActionListener()
         {
@@ -37,12 +44,10 @@ public class NavigationUI extends javax.swing.JFrame{
                 TaskListUI tl = new TaskListUI();
             }
         });
-        JButton uc4Button = new JButton("Search Contact (NOT IMPLEMENTED");
 
         navPanel.add(uc1Button);
         navPanel.add(uc2Button);
         navPanel.add(uc3Button);
-        navPanel.add(uc4Button);
 
         frame.add(navPanel);
 

@@ -37,7 +37,8 @@ public class TaskListUI {
     TaskListCtrl tlc = new TaskListCtrl();
     DefaultListModel<Task> model = new DefaultListModel<Task>();
     JList<Task> taskJList;
-    
+    ListSelectionModel listSelectionModel;
+
     public TaskListUI(){
         tlc.addTask("Laundry", "Do Laudnry", new Date());
         tlc.addTask("Homework", "Do Homework", new Date());
@@ -79,15 +80,15 @@ public class TaskListUI {
         
         
         JTextField taskName = new JTextField();
-        taskName.setPreferredSize(new Dimension(500, 20));
+        taskName.setPreferredSize(new Dimension(400, 20));
         taskName.setMaximumSize(taskName.getPreferredSize());
         
         JTextField taskDescription = new JTextField();
-        taskDescription.setPreferredSize(new Dimension(500, 100));
+        taskDescription.setPreferredSize(new Dimension(400, 100));
         taskDescription.setMaximumSize(taskDescription.getPreferredSize());
         
         JTextField taskCreatedDate = new JTextField();
-        taskCreatedDate.setPreferredSize(new Dimension(500, 20));
+        taskCreatedDate.setPreferredSize(new Dimension(400, 20));
         taskCreatedDate.setMaximumSize(taskCreatedDate.getPreferredSize());
         
         addTaskButton.addActionListener(new ActionListener()
@@ -128,8 +129,7 @@ public class TaskListUI {
         });
         
         JFrame frame = new JFrame("Task List");
-        frame.setPreferredSize(new Dimension(600, 500));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        frame.setPreferredSize(new Dimension(650, 500));
         
         JPanel panel = new JPanel();
         JPanel listPanel = new JPanel();
@@ -140,7 +140,7 @@ public class TaskListUI {
         taskJList.setCellRenderer(new TaskRenderer());
         taskJList.setVisibleRowCount(-1);
         
-        ListSelectionModel listSelectionModel;
+
         listSelectionModel = taskJList.getSelectionModel();
         
         ListSelectionListener listSelectionListener = new ListSelectionListener() {
@@ -148,12 +148,12 @@ public class TaskListUI {
                 JList list = (JList) listSelectionEvent.getSource();
                 int selections[] = list.getSelectedIndices();
                 for (int i = 0, n = selections.length; i < n; i++) {
-                    taskName.setText(tlc.getTaskList().get(selections[i]).taskName);
-                    taskDescription.setText(tlc.getTaskList().get(selections[i]).taskDescription);
-                    yearTextField.setText((tlc.getTaskList().get(selections[i]).taskDueDate.getYear() + 1900 ) + "");
-                    taskCreatedDate.setText(tlc.getTaskList().get(selections[i]).taskCreatedDate.toString());
-                    monthComboBox.setSelectedIndex(tlc.getTaskList().get(selections[i]).taskDueDate.getMonth());
-                    dayComboBox.setSelectedIndex(tlc.getTaskList().get(selections[i]).taskDueDate.getDate() - 1);
+                    taskName.setText(taskJList.getModel().getElementAt(selections[i]).taskName);
+                    taskDescription.setText(taskJList.getModel().getElementAt(selections[i]).taskDescription);
+                    yearTextField.setText((taskJList.getModel().getElementAt(selections[i]).taskDueDate.getYear() + 1900 ) + "");
+                    taskCreatedDate.setText(taskJList.getModel().getElementAt(selections[i]).taskCreatedDate.toString());
+                    monthComboBox.setSelectedIndex(taskJList.getModel().getElementAt(selections[i]).taskDueDate.getMonth());
+                    dayComboBox.setSelectedIndex(taskJList.getModel().getElementAt(selections[i]).taskDueDate.getDate() - 1);
                 }
             }
         };
@@ -166,7 +166,7 @@ public class TaskListUI {
 
         JTextField searchBar = new JTextField();
         searchBar.setPreferredSize(new Dimension(180, 20));
-        JButton searchButton = new JButton("Submit");
+        JButton searchButton = new JButton("Search");
         searchButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -183,8 +183,7 @@ public class TaskListUI {
                     model.addElement(t);
                 }
 
-                taskJList.revalidate();
-            }
+                taskJList.revalidate();}
         });
 
         listPanel.add(searchBar);
