@@ -59,7 +59,7 @@ public class ContactCtrl {
             contacts.add(contact);
             try 
             {
-                FileOutputStream fOutput = new FileOutputStream("src\\contact.txt");
+                FileOutputStream fOutput = new FileOutputStream("src\\ist311\\contact.txt");
                 PrintWriter outF = new PrintWriter(fOutput);
                 
                 for (int y = 0; y < contacts.size(); y++)
@@ -80,7 +80,7 @@ public class ContactCtrl {
         {
         try 
         {
-            FileInputStream fInput = new FileInputStream ("src\\contact.txt");
+            FileInputStream fInput = new FileInputStream ("src\\ist311\\contact.txt");
             Scanner fI = new Scanner(fInput);
             while (fI.hasNextLine())                
             {
