@@ -27,6 +27,7 @@ public class IST311 {
 
         LoginUI theLoginUI = new LoginUI(lct);
         theLoginUI.setVisible(true);
-           
+        ContactCtrl cc = new ContactCtrl();
+
     }   
 }
