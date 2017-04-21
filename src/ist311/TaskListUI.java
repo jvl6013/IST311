@@ -162,6 +162,33 @@ public class TaskListUI {
         JScrollPane pane = new JScrollPane(taskJList);
         pane.setPreferredSize(new Dimension(250,400));
 
+
+
+        JTextField searchBar = new JTextField();
+        searchBar.setPreferredSize(new Dimension(180, 20));
+        JButton searchButton = new JButton("Submit");
+        searchButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                List<Task> searchedList = new ArrayList<Task>();
+
+                String searchTerm;
+                searchTerm = searchBar.getText();
+                searchedList = tlc.searchTask(searchTerm);
+
+                model.clear();
+
+                for(Task t:searchedList){
+                    model.addElement(t);
+                }
+
+                taskJList.revalidate();
+            }
+        });
+
+        listPanel.add(searchBar);
+        listPanel.add(searchButton);
         listPanel.add(pane);
         listPanel.add(addTaskButton);
         listPanel.add(deleteTaskButton);
