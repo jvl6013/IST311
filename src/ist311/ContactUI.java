@@ -1,62 +1,59 @@
 package ist311;
-
 import javax.swing.*;
 import java.awt.event.*;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class ContactUI extends JFrame{
-    JPanel panel;
+    ContactPanel cP;
     AddContactPanel aCP;
-    ContactUI(AddContactPanel aCP)
+    
+    
+    ContactUI(AddContactPanel aCP, ContactPanel cP)
     {
         
         setTitle("Contact Manager");
         this.setSize(500,600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
-        makePanel();
         this.aCP = aCP;
-        this.add(panel);
+        this.cP = cP;
+        this.add(cP);
+        
    
     }
-
-    private void makeOthers()
+    
+    public void addCPListener(ActionListener al)
     {
-        
-        this.aCP = new AddContactPanel();
+        cP.getButton().addActionListener(al);
     }
-    private void buttonHit()
+    
+    public void addCancelListener(ActionListener al)
     {
-        this.remove(panel);
-        makeOthers();
+        aCP.getCancel().addActionListener(al);
+    }
+
+    public void addSubmitListener(ActionListener al)
+    {
+        aCP.getSubmit().addActionListener(al);
+    }
+    
+    
+    public void addACP()
+    {
+        if (this.cP != null)
+        {this.remove(cP);}
         this.add(aCP);
+        repaint();
         revalidate();
-        
     }
-    
-    public void makePanel()
-    {
-        panel = new JPanel();
-        JButton addContact = new JButton("add contact");
-        addContact.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent ae)
-            {
-                buttonHit();
-            }
-             
-        });
-        panel.add(addContact);
 
-    }
-    
-    public void back()
+    public void addCP()
     {
-        makePanel();
-        if (aCP != null)
+        if (this.aCP != null)
         {this.remove(aCP);}
-        else
-        {System.out.println("sdjofnwskldfnwef");}
-        
-        this.add(panel);
+        cP.addCon();
+        this.add(cP);
+        repaint();
+        revalidate();
     }
 }

@@ -1,7 +1,6 @@
 package ist311;
-
-
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 
 
@@ -54,11 +53,7 @@ public class AddContactPanel extends javax.swing.JPanel{
 
         addressLabel.setText("Street Address");
 
-        addressField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressFieldActionPerformed(evt);
-            }
-        });
+
 
         jLabel1.setText("Phone Number");
 
@@ -76,11 +71,6 @@ public class AddContactPanel extends javax.swing.JPanel{
 
         jLabel3.setText("County");
 
-        countyField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countyFieldActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Email");
 
@@ -197,19 +187,14 @@ public class AddContactPanel extends javax.swing.JPanel{
         );
     }// </editor-fold>                        
 
-    private void addressFieldActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
-    }                                            
-
-                                         
-
-    private void countyFieldActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    public void addCancelListener(ActionListener al)
+    public JButton getCancel()
     {
-        cancelButton.addActionListener(al);
+        return cancelButton;
+    }
+    
+    public JButton getSubmit()
+    {
+        return submitButton;
     }
 
 
@@ -222,7 +207,7 @@ public class AddContactPanel extends javax.swing.JPanel{
     private javax.swing.JTextField countryField;
     private javax.swing.JTextField countyField;
     private javax.swing.JTextField emailField;
-    private javax.swing.JTextField fNameField;
+    public javax.swing.JTextField fNameField;
     private javax.swing.JLabel fNameLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
