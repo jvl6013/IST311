@@ -15,14 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginCtrl {
-    List<String> userList = new ArrayList<String>();
+    List<String> userList;
+    Serialization serialize = new Serialization();
        
     public LoginCtrl(){
-    
+        userList = new ArrayList<String>();
+
     }
     
     public boolean authenticate(String userName){
-        
+        userList = serialize.deserializeUserList("src/UserList.ser");
         
         for(int i = 0; i < userList.size(); i++){
             if(userName.equals(userList.get(i))){
@@ -34,12 +36,15 @@ public class LoginCtrl {
     }
     
     public void listUsers(){
+        userList = serialize.deserializeUserList("src/UserList.ser");
         for(int i = 0; i < userList.size(); i++){
             System.out.println(userList.get(i));
         }
     }
     
     public void addUser(String userName){
+
         userList.add(userName);
+        serialize.serializeUserList(userList, "src/UserList.ser");
     }
 }

@@ -15,27 +15,37 @@ import java.util.List;
  */
 public class TaskListCtrl {
     List<Task> taskList;
+    Serialization serialize = new Serialization();
+    String username;
 
-    public TaskListCtrl() {
+    public TaskListCtrl(String username) {
+        this.username = username;
+
         taskList = new ArrayList<Task>();
+
+        taskList = serialize.deserializeTaskList("users/" + this.username + "/TaskList.ser");
     }
 
     public void addTask(String taskName, String taskDescription, Date dueDate) {
-        taskList.add(new Task(taskName, taskDescription, dueDate));
+
+        serialize.serializeTaskList(taskList, "users/" + this.username + "/TaskList.ser");
     }
 
     public void addTask(Task t) {
         taskList.add(t);
+        serialize.serializeTaskList(taskList, "users/" + this.username + "/TaskList.ser");
     }
 
     public void deleteTask(int index) {
         taskList.remove(index);
+        serialize.serializeTaskList(taskList, "users/" + this.username + "/TaskList.ser");
     }
 
     public void setTask(int index, String taskName, String taskDescription, Date dueDate) {
         taskList.get(index).setTaskDescription(taskDescription);
         taskList.get(index).setTaskName(taskName);
         taskList.get(index).setTaskDueDate(dueDate);
+        serialize.serializeTaskList(taskList, "users/" + this.username + "/TaskList.ser");
     }
 
     public List<Task> searchTask(String term) {

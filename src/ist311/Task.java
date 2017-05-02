@@ -5,13 +5,14 @@
  */
 package ist311;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author jvl6013
  */
-public class Task {
+public class Task implements Serializable {
     String taskName, taskDescription;
     Date taskDueDate, taskCreatedDate;
     

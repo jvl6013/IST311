@@ -1,11 +1,12 @@
 package ist311;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by fivewen on 4/21/17.
  */
-public class Contact {
+public class Contact implements Serializable{
     String firstName, lastName, stAddress, city, zipCode, phoneNumber, email;
 
     public Contact(String firstName, String lastName, String stAddress, String city, String zipCode, String phoneNumber, String email) {

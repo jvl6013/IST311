@@ -11,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,14 +35,14 @@ import javax.swing.event.ListSelectionListener;
  * @author jvl6013
  */
 public class TaskListUI {
-    TaskListCtrl tlc = new TaskListCtrl();
+    TaskListCtrl tlc;
     DefaultListModel<Task> model = new DefaultListModel<Task>();
     JList<Task> taskJList;
     ListSelectionModel listSelectionModel;
 
-    public TaskListUI(){
-        tlc.addTask("Laundry", "Do Laudnry", new Date());
-        tlc.addTask("Homework", "Do Homework", new Date());
+    public TaskListUI(String username){
+
+        tlc = new TaskListCtrl(username);
 
         for(Task t:tlc.getTaskList()){
             model.addElement(t);

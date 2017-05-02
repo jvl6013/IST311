@@ -32,13 +32,14 @@ import javax.swing.event.ListSelectionListener;
  * @author jvl6013
  */
 public class ContactListUI {
-    ContactListCtrl clc = new ContactListCtrl();
+    ContactListCtrl clc;
     DefaultListModel<Contact> model = new DefaultListModel<Contact>();
     JList<Contact> contactJList;
+    String username;
 
-    public ContactListUI(){
-        clc.addContact("Owen", "Lee", "1234 testing drive", "State College",
-                "16802", "1234567890", "testing@testing.com");
+    public ContactListUI(String username){
+        this.username = username;
+        clc = new ContactListCtrl(this.username);
 
         for(Contact c:clc.getContactList()){
             model.addElement(c);

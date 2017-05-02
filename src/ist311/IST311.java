@@ -22,11 +22,14 @@ public class IST311 {
     public static void main(String[] args) {
 
         LoginCtrl lct = new LoginCtrl();
-        lct.addUser("Owen");
-        lct.addUser("Jerry");
 
         LoginUI theLoginUI = new LoginUI(lct);
         theLoginUI.setVisible(true);
+
+        int a = 0;
+
+        System.out.println(a);
+
 
     }   
 }

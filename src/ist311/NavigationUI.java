@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class NavigationUI extends javax.swing.JFrame{
-    public NavigationUI(){
+    String username;
+    public NavigationUI(String username){
+        this.username = username;
         initComponents();
     }
     
@@ -25,7 +27,7 @@ public class NavigationUI extends javax.swing.JFrame{
         {
             public void actionPerformed(ActionEvent e)
             {
-                CalUI cal = new CalUI();
+                CalUI cal = new CalUI(username);
             }
         });
         JButton uc2Button = new JButton("Contact List");
@@ -33,7 +35,7 @@ public class NavigationUI extends javax.swing.JFrame{
         {
             public void actionPerformed(ActionEvent e)
             {
-                ContactListUI cl = new ContactListUI();
+                ContactListUI cl = new ContactListUI(username);
             }
         });
         JButton uc3Button = new JButton("Task List");
@@ -41,7 +43,7 @@ public class NavigationUI extends javax.swing.JFrame{
         {
             public void actionPerformed(ActionEvent e)
             {
-                TaskListUI tl = new TaskListUI();
+                TaskListUI tl = new TaskListUI(username);
             }
         });
 
